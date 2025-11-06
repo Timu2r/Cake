@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Create axios instance with base configuration
 const api = axios.create({
-	baseURL: '/api', // This will use the Vite proxy
+	baseURL: import.meta.env.VITE_API_URL, // This will use the Vite proxy
 	timeout: 10000, // 10 second timeout
 	headers: {
 		'Content-Type': 'application/json',

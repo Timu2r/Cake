@@ -1,24 +1,33 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 
-export default defineConfig({
-  base: '/', // ✅ this must be '/' for custom domain
-  server: {
-    host: 'localhost',
-    port: 5173,
-    proxy: {
-      '/api': {
-        target: 'https://api.zarinka.uz', // or your Render backend URL
-        changeOrigin: true,
-        secure: true,
-      },
-      '/uploads': {
-        target: 'https://api.zarinka.uz',
-        changeOrigin: true,
-        secure: true,
+export default defineConfig(({ mode }) => {
+  // Load env file based on `mode`
+  const env = loadEnv(mode, process.cwd(), '')
+  
+  return {
+    base: '/',
+    server: {
+      host: 'localhost',
+      port: 5173,
+      proxy: {
+        '/api': {
+          target: env.VITE_API_URL || 'https://api.zarinka.uz',
+          changeOrigin: true,
+          secure: true,
+        },
+        '/uploads': {
+          target: env.VITE_API_URL || 'https://api.zarinka.uz',
+          changeOrigin: true,
+          secure: true,
+        },
       },
     },
-  },
-  build: {
-    outDir: 'dist',
-  },
+    build: {
+      outDir: 'dist',
+    },
+    // ✅ Explicitly define env variables for client
+    define: {
+      __APP_ENV__: JSON.stringify(env.APP_ENV),
+    },
+  }
 })

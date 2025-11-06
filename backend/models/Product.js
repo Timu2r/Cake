@@ -14,14 +14,14 @@ const productSchema = new mongoose.Schema({
 
     sizes: [
         {
-            label: { type: String, required: true }, // e.g. "Small", "Medium", "Large"
-            price: { type: Number, required: true } // size-based price
+            label: { type: String, required: true },
+            price: { type: Number, required: true }
         }
     ],
 
     orderCount: {
         type: Number,
-        default: 0 // track number of orders
+        default: 0
     },
 
     rating: {
