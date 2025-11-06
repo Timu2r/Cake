@@ -115,7 +115,7 @@ export const useProductStore = create(set => ({
 		const setLoading = useLoadingStore.getState().setLoading;
 		setLoading(true);
 		try {
-			const res = await api.get(`${API_URL}/products/${productId}`, {
+			const res = await api.get(`/products/${productId}`, {
 				timeout: 15000
 			});
 			return res.data || null;
@@ -182,7 +182,7 @@ export const useProductStore = create(set => ({
 
 		set({ error: '' });
 		try {
-			const res = await api.get(`${API_URL}/products/bakers/${bakerId}`, {
+			const res = await api.get(`/products/bakers/${bakerId}`, {
 				timeout: 15000
 			});
 			set({ bakerProducts: res.data || [] });
@@ -202,7 +202,7 @@ export const useProductStore = create(set => ({
 		setLoading(true);
 		set({ error: '' });
 		try {
-			const res = await api.get(`${API_URL}/categories`, {
+			const res = await api.get(`/categories`, {
 				timeout: 15000
 			});
 
@@ -253,7 +253,7 @@ export const useProductStore = create(set => ({
 		}
 
 		try {
-			const res = await api.delete(`${API_URL}/products/${productId}`, {
+			const res = await api.delete(`/products/${productId}`, {
 				headers: { Authorization: `Bearer ${token}` },
 				timeout: 15000
 			});
@@ -295,7 +295,7 @@ export const useProductStore = create(set => ({
 		}
 
 		try {
-			const res = await api.put(`${API_URL}/products/${productId}`, productData, {
+			const res = await api.put(`/products/${productId}`, productData, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},

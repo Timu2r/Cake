@@ -36,6 +36,7 @@ const aboutImages = [
 ]
 
 import { useTranslation } from 'react-i18next';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Home = () => {
 	const { t } = useTranslation();

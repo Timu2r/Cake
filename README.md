@@ -104,6 +104,22 @@ npm start
 - Frontend: `http://localhost:3000`
 - Backend API: `http://localhost:5000`
 
+## 🐳 Running with Docker
+
+### Prerequisites
+- Docker
+- Docker Compose
+
+### Build and run the containers
+
+```bash
+docker-compose up --build
+```
+
+### Open your browser
+- Frontend: `http://localhost:3000`
+- Backend API: `http://localhost:8000`
+
 ## 🎯 Features Showcase
 
 <div align="center">

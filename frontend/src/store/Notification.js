@@ -10,7 +10,7 @@ export const useNotificationStore = create((set, get) => ({
   fetchNotifications: async (token) => {
     set({ loading: true });
     try {
-      const res = await api.get(`${API_URL}/notifications/me`, {
+      const res = await api.get(`/notifications/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const notifications = res.data;
@@ -24,7 +24,7 @@ export const useNotificationStore = create((set, get) => ({
 
   markAsRead: async (notificationId, token) => {
     try {
-      const res = await api.put(`${API_URL}/notifications/${notificationId}/read`, {}, {
+      const res = await api.put(`/notifications/${notificationId}/read`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       set(state => {
@@ -41,7 +41,7 @@ export const useNotificationStore = create((set, get) => ({
 
   markAllAsRead: async (token) => {
     try {
-      await api.put(`${API_URL}/notifications/read-all`, {}, {
+      await api.put(`/notifications/read-all`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       set(state => ({
