@@ -3,14 +3,7 @@
   "builds": [
     {
       "src": "frontend/package.json",
-      "use": "@vercel/vite",
-      "options": {
-        "installCommand": "npm install",
-        "buildCommand": "npm run build"
-      },
-      "config": {
-        "distDir": "frontend/dist"
-      }
+      "use": "@vercel/vite"
     },
     {
       "src": "backend/index.js",
