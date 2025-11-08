@@ -15,11 +15,6 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           secure: true,
         },
-        '/uploads': {
-          target: env.VITE_API_URL || 'https://api.zarinka.uz',
-          changeOrigin: true,
-          secure: true,
-        },
       },
     },
     build: {

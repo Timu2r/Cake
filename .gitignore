@@ -41,3 +41,5 @@ temp/
 *.local
 .env.local
 .env.*.local
+
+.vercel
